@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Recherche de photos</h1>
+    <div class="search-container">
+      <input type="text" class="search-input" [(ngModel)]="keyword" placeholder="Entrez un mot-clé">
+      <button class="search-btn" (click)="search()">Rechercher</button>
+    </div>
+    
+    <div class="photo-container">
+      <div class="row">
+        <div class="col-md-6" *ngFor="let photo of photos">
+          <div class="card mb-4 box-shadow">
+            <img class="card-img-top" [src]="photo.image" alt="Card image cap">
+            <div class="card-body">
+              <p class="card-text">{{ photo.tags.join(', ') }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted">{{ photo.comments }} commentaires   </small>
+                <small class="text-muted">{{ photo.likes }} likes</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
